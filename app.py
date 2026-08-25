@@ -2,13 +2,13 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.set_page_config(
-    page_title="Janwani AI - Interactive Demo",
+    page_title="Janwani AI - Smart Prototype",
     page_icon="🎙️",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-# Hide Streamlit default headers for a pure native mobile app feel
+# Hide Streamlit Chrome for Native App Feel
 st.markdown("""
 <style>
     #MainMenu {visibility: hidden;}
@@ -16,313 +16,325 @@ st.markdown("""
     header {visibility: hidden;}
     .block-container {
         padding: 0 !important;
-        max-width: 480px !important;
+        max-width: 450px !important;
         margin: auto;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Complete Cinematic Web-App Simulation with Voice, Animations, Soundwaves, Auto-OTP, and Govt SMS
-interactive_app_html = """
+# Upgraded Interactive Native App Component
+smart_app_html = """
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Janwani AI Native App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Janwani AI Native Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body {
             background-color: #030712;
             color: #f9fafb;
-            font-family: 'Urbanist', 'Noto Sans Devanagari', sans-serif;
-            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            user-select: none;
         }
 
         .phone-shell {
             width: 100%;
-            max-width: 420px;
-            height: 90vh;
+            max-width: 410px;
+            height: 92vh;
             max-height: 840px;
             background: #090d16;
-            border-radius: 36px;
-            border: 2px solid rgba(45, 212, 191, 0.3);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(45, 212, 191, 0.15);
+            border-radius: 40px;
+            border: 1.5px solid rgba(0, 240, 255, 0.25);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 240, 255, 0.12);
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
         }
 
-        /* Top Notch & Status */
+        /* Top Bar */
         .status-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 24px 8px;
+            padding: 14px 24px 8px;
             font-size: 13px;
-            color: #94a3b8;
+            color: #64748b;
             font-weight: 600;
         }
         .notch {
-            width: 90px;
-            height: 18px;
+            width: 85px;
+            height: 16px;
             background: #030712;
             border-radius: 20px;
         }
 
-        /* Government Notification Banner */
+        /* Live Govt Push SMS Banner */
         .sms-banner {
             position: absolute;
-            top: -120px;
-            left: 16px;
-            right: 16px;
-            background: rgba(15, 23, 42, 0.95);
+            top: -140px;
+            left: 14px;
+            right: 14px;
+            background: rgba(15, 23, 42, 0.96);
             border: 1px solid #10b981;
-            backdrop-filter: blur(15px);
-            border-radius: 18px;
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
             padding: 14px 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(16, 185, 129, 0.3);
-            z-index: 1000;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.85), 0 0 25px rgba(16, 185, 129, 0.35);
+            z-index: 2000;
             transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             gap: 12px;
             align-items: center;
         }
-        .sms-banner.show {
-            transform: translateY(135px);
-        }
+        .sms-banner.show { transform: translateY(155px); }
         .sms-icon {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             background: #10b981;
-            color: #000;
-            border-radius: 10px;
+            color: #030712;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
             flex-shrink: 0;
         }
-        .sms-text h5 { font-size: 14px; color: #10b981; font-weight: 700; margin-bottom: 2px; }
+        .sms-text h5 { font-size: 13px; color: #10b981; font-weight: 800; margin-bottom: 2px; }
         .sms-text p { font-size: 12px; color: #e2e8f0; line-height: 1.3; }
 
         /* Main Screen Container */
         .screen-content {
             flex: 1;
-            padding: 20px 24px;
+            padding: 16px 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            overflow-y: auto;
         }
 
-        /* Animated Mic / Sound Logo */
+        /* Pulsating Voice Orb Logo */
         .logo-hub {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: auto 0;
+            margin: 10px 0;
             text-align: center;
         }
         .orb-ring {
-            width: 140px;
-            height: 140px;
+            width: 125px;
+            height: 125px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(45, 212, 191, 0.2) 0%, rgba(14, 165, 233, 0.05) 70%);
-            border: 2px solid rgba(45, 212, 191, 0.4);
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(14, 165, 233, 0.05) 70%);
+            border: 2px solid rgba(0, 240, 255, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 0 35px rgba(45, 212, 191, 0.3);
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
             transition: all 0.4s ease;
+            cursor: pointer;
         }
         .orb-ring.speaking {
-            animation: pulseWave 1.4s infinite alternate;
-            border-color: #2dd4bf;
-            box-shadow: 0 0 50px rgba(45, 212, 191, 0.6);
+            animation: orbPulse 1.2s infinite alternate ease-in-out;
+            border-color: #00F0FF;
+            box-shadow: 0 0 60px rgba(0, 240, 255, 0.7);
         }
         .orb-icon {
-            font-size: 52px;
-            color: #2dd4bf;
-            filter: drop-shadow(0 0 15px rgba(45, 212, 191, 0.8));
+            font-size: 46px;
+            color: #00F0FF;
+            filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.9));
         }
 
-        @keyframes pulseWave {
-            0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(45, 212, 191, 0.2); }
-            100% { transform: scale(1.1); box-shadow: 0 0 55px rgba(45, 212, 191, 0.7); }
+        @keyframes orbPulse {
+            0% { transform: scale(0.96); box-shadow: 0 0 25px rgba(0, 240, 255, 0.3); }
+            100% { transform: scale(1.12); box-shadow: 0 0 65px rgba(0, 240, 255, 0.85); }
         }
 
-        /* Sound Wave Visualizer Bars */
+        /* Soundwave frequency bars */
         .wave-bars {
             display: flex;
-            gap: 6px;
-            height: 35px;
+            gap: 5px;
+            height: 28px;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 14px;
         }
         .bar {
-            width: 4px;
-            background: #2dd4bf;
+            width: 3.5px;
+            background: #00F0FF;
             border-radius: 4px;
-            height: 6px;
+            height: 5px;
             transition: height 0.2s ease;
         }
         .speaking .bar {
-            animation: bounceBar 0.8s infinite ease-in-out alternate;
+            animation: bounceBar 0.7s infinite ease-in-out alternate;
         }
-        .speaking .bar:nth-child(2) { animation-delay: 0.15s; }
-        .speaking .bar:nth-child(3) { animation-delay: 0.3s; }
-        .speaking .bar:nth-child(4) { animation-delay: 0.45s; }
-        .speaking .bar:nth-child(5) { animation-delay: 0.2s; }
-        .speaking .bar:nth-child(6) { animation-delay: 0.35s; }
+        .speaking .bar:nth-child(2) { animation-delay: 0.1s; }
+        .speaking .bar:nth-child(3) { animation-delay: 0.25s; }
+        .speaking .bar:nth-child(4) { animation-delay: 0.4s; }
+        .speaking .bar:nth-child(5) { animation-delay: 0.18s; }
+        .speaking .bar:nth-child(6) { animation-delay: 0.32s; }
 
         @keyframes bounceBar {
-            0% { height: 6px; }
-            100% { height: 32px; background: #38bdf8; }
+            0% { height: 5px; }
+            100% { height: 28px; background: #38bdf8; }
         }
 
-        .ai-subtitle {
-            margin-top: 20px;
-            font-size: 19px;
-            font-weight: 600;
+        .ai-dialogue {
+            margin-top: 14px;
+            font-size: 17px;
+            font-weight: 700;
             color: #ffffff;
-            min-height: 55px;
             line-height: 1.4;
             text-align: center;
-            padding: 0 10px;
+            padding: 0 8px;
         }
-        .ai-sub-caption {
-            font-size: 13px;
-            color: #64748b;
-            margin-top: 4px;
-        }
-
-        /* Buttons & Options Grid */
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .opt-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-            padding: 16px 18px;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .opt-btn:hover, .opt-btn:active {
-            background: rgba(45, 212, 191, 0.15);
-            border-color: #2dd4bf;
-            transform: scale(1.02);
-        }
-        .opt-btn i { color: #2dd4bf; font-size: 18px; }
-
-        /* Scheme Cards Layout */
-        .scheme-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(45, 212, 191, 0.2);
-            border-radius: 18px;
-            padding: 15px;
-            margin-bottom: 12px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .scheme-card.active-scheme {
-            border-color: #2dd4bf;
-            background: rgba(45, 212, 191, 0.08);
-            box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
-        }
-        .scheme-card h4 { font-size: 16px; color: #2dd4bf; margin-bottom: 4px; }
-        .scheme-card p { font-size: 13px; color: #cbd5e1; line-height: 1.3; }
-
-        /* Form Fill Mockup */
-        .form-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
-            padding: 18px;
-        }
-        .form-row {
-            margin-bottom: 12px;
-        }
-        .form-row label {
-            display: block;
-            font-size: 12px;
-            color: #94a3b8;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .form-input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(45, 212, 191, 0.3);
-            padding: 10px 14px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .digilocker-badge {
+        .ai-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(56, 189, 248, 0.15);
-            border: 1px solid #38bdf8;
-            padding: 4px 10px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 4px 12px;
             border-radius: 20px;
             font-size: 11px;
-            color: #38bdf8;
+            color: #00F0FF;
             margin-top: 8px;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        .pulse-btn {
-            background: #2dd4bf;
+        /* Keyword Filter Pills Grid */
+        .keyword-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 0;
+            margin-bottom: 10px;
+            scrollbar-width: none;
+        }
+        .keyword-scroll::-webkit-scrollbar { display: none; }
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .pill.active, .pill:hover {
+            background: #00F0FF;
+            color: #030712;
+            border-color: #00F0FF;
+            font-weight: 800;
+        }
+
+        /* Scheme Cards */
+        .scheme-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .scheme-card:hover, .scheme-card.selected {
+            border-color: #00F0FF;
+            background: rgba(0, 240, 255, 0.08);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+        .scheme-card h4 { font-size: 15px; color: #00F0FF; margin-bottom: 4px; font-weight: 700; }
+        .scheme-card p { font-size: 12px; color: #cbd5e1; line-height: 1.3; }
+
+        /* Form Mockup Box */
+        .form-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 14px;
+        }
+        .form-row { margin-bottom: 10px; }
+        .form-row label { display: block; font-size: 11px; color: #94a3b8; margin-bottom: 3px; font-weight: 700; }
+        .form-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Action Buttons */
+        .primary-btn {
+            background: #00F0FF;
             color: #030712;
             border: none;
-            padding: 16px;
-            border-radius: 16px;
-            font-size: 16px;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 15px;
             font-weight: 800;
             cursor: pointer;
             width: 100%;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 25px rgba(45, 212, 191, 0.4);
-            margin-top: 10px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+            margin-top: 8px;
         }
+
+        .tap-prompt {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            cursor: pointer;
+        }
+        .tap-prompt i { font-size: 54px; color: #00F0FF; margin-bottom: 16px; animation: pulseWave 1s infinite alternate; }
+        .tap-prompt h3 { font-size: 20px; color: #fff; margin-bottom: 6px; }
+        .tap-prompt p { font-size: 13px; color: #94a3b8; }
     </style>
 </head>
 <body>
 
 <div class="phone-shell" id="phoneContainer">
     
-    <!-- Top Government Notification Bar (Simulated) -->
+    <!-- Tap Anywhere Start Mask (Browser Autoplay Unlock) -->
+    <div class="tap-prompt" id="startMask" onclick="unlockAudioAndStart()">
+        <i class="fa-solid fa-fingerprint"></i>
+        <h3>स्क्रीन पर कहीं भी टच करें</h3>
+        <p>जनवाणी AI वॉइस असिस्टेंट शुरू करने के लिए</p>
+    </div>
+
+    <!-- Official Govt Push Notification Banner -->
     <div class="sms-banner" id="govtSms">
         <div class="sms-icon"><i class="fa-solid fa-building-columns"></i></div>
         <div class="sms-text">
-            <h5>GOVT OF MAHARASHTRA / DBT</h5>
-            <p>संजय गांधी निराधार योजना अर्ज क्र. #MH-9842 यशस्वीरीत्या नोंदवला गेला आहे. बँक खात्याची पडताळणी पूर्ण झाली आहे.</p>
+            <h5>भारत सरकार / DBT कल्याण पोर्टल</h5>
+            <p>आपकी योजना का आवेदन #IN-984210 सफलतापूर्वक दर्ज हो गया है। डायरेक्ट बेनिफिट ट्रांसफर (DBT) स्वीकृत है।</p>
         </div>
     </div>
 
@@ -330,15 +342,15 @@ interactive_app_html = """
     <div class="status-bar">
         <span>09:41</span>
         <div class="notch"></div>
-        <span><i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-bolt" style="color:#2dd4bf;"></i> 5G</span>
+        <span><i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-bolt" style="color:#00F0FF;"></i> 5G</span>
     </div>
 
-    <!-- Interactive Screen Viewport -->
+    <!-- Screen Viewport -->
     <div class="screen-content" id="screenView">
         
         <!-- Center Logo & Sound Wave Hub -->
         <div class="logo-hub">
-            <div class="orb-ring" id="orbVisual">
+            <div class="orb-ring" id="orbVisual" onclick="reSpeakCurrent()">
                 <i class="fa-solid fa-microphone-lines orb-icon"></i>
             </div>
             
@@ -351,28 +363,15 @@ interactive_app_html = """
                 <div class="bar"></div>
             </div>
 
-            <div class="ai-subtitle" id="aiDialogue">
-                नमस्ते! मी जनवाणी एआय आहे.<br>तुम्ही माझ्याशी कोणत्या भाषेत बोलू इच्छिता?
+            <div class="ai-dialogue" id="aiDialogue">
+                नमस्ते! मैं जनवाणी एआई हूँ।
             </div>
-            <div class="ai-sub-caption" id="aiSub">Bhashini Multilingual Speech Core Active</div>
+            <div class="ai-badge" id="aiBadge"><i class="fa-solid fa-language"></i> भाषिणी AI वॉइस इंजन सक्रिय</div>
         </div>
 
-        <!-- Dynamic Controls Viewport -->
+        <!-- Dynamic Content Body -->
         <div id="actionArea">
-            <div class="options-grid" id="langOptions">
-                <button class="opt-btn" onclick="startAppSequence('mr')">
-                    <span><i class="fa-solid fa-volume-high" style="margin-right:10px;"></i> मराठी (Marathi)</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-                <button class="opt-btn" onclick="startAppSequence('hi')">
-                    <span><i class="fa-solid fa-volume-high" style="margin-right:10px;"></i> हिन्दी (Hindi)</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-                <button class="opt-btn" onclick="startAppSequence('en')">
-                    <span><i class="fa-solid fa-volume-high" style="margin-right:10px;"></i> English</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
+            <!-- Will be dynamically populated via JS -->
         </div>
 
     </div>
@@ -380,130 +379,207 @@ interactive_app_html = """
 </div>
 
 <script>
-    // Audio Synthetic Engine (Speaks in Marathi/Hindi/English)
-    function speakText(text, langCode = 'mr-IN') {
+    // Clean String Audio Synthesizer (Fixes exclamation & punctuation reading bugs)
+    let currentSpeechText = "";
+
+    function cleanTextForSpeech(rawText) {
+        return rawText
+            .replace(/[#!*\_~`><]/g, '')
+            .replace(/[-]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function speakText(rawText, langCode = 'hi-IN', callback = null) {
+        currentSpeechText = rawText;
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
+            const cleanText = cleanTextForSpeech(rawText);
+            const utterance = new SpeechSynthesisUtterance(cleanText);
             utterance.lang = langCode;
-            utterance.rate = 0.95;
+            utterance.rate = 0.92;
+            utterance.pitch = 1.0;
             
             const orb = document.getElementById('orbVisual');
             utterance.onstart = () => { orb.classList.add('speaking'); };
-            utterance.onend = () => { orb.classList.remove('speaking'); };
+            utterance.onend = () => { 
+                orb.classList.remove('speaking');
+                if (callback) callback();
+            };
             utterance.onerror = () => { orb.classList.remove('speaking'); };
 
             window.speechSynthesis.speak(utterance);
         }
     }
 
-    // Trigger Initial Welcome Greeting on Load/First Tap
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            speakText("नमस्ते! आप किस भाषा में मुझसे बात करना चाहेंगे?", "hi-IN");
-        }, 600);
-    });
-
-    // STEP 1: User Chooses Marathi / Regional Language
-    function startAppSequence(lang) {
-        const aiDialogue = document.getElementById('aiDialogue');
-        const actionArea = document.getElementById('actionArea');
-        
-        aiDialogue.innerHTML = "नमस्कार! मी जनवाणी एआय.<br>तुम्हाला कोणत्या योजनेबद्दल माहिती हवी आहे?";
-        speakText("नमस्कार! मी जनवाणी एआय. तुम्हाला कोणत्या योजनेबद्दल माहिती हवी आहे? जसे की पेन्शन किंवा शेतकरी योजना.", "mr-IN");
-
-        actionArea.innerHTML = `
-            <div class="options-grid">
-                <button class="opt-btn" onclick="openSchemesView('pension')">
-                    <span><i class="fa-solid fa-hands-holding-child" style="margin-right:8px;"></i> मला पेन्शन हवी आहे (Senior Pension)</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-                <button class="opt-btn" onclick="openSchemesView('farmer')">
-                    <span><i class="fa-solid fa-wheat-awn" style="margin-right:8px;"></i> शेतकरी योजना (Farmer Subsidy)</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-        `;
+    function reSpeakCurrent() {
+        if(currentSpeechText) speakText(currentSpeechText);
     }
 
-    // STEP 2: Show Schemes & Explain Benefits Verbally
-    function openSchemesView(type) {
-        const aiDialogue = document.getElementById('aiDialogue');
-        const actionArea = document.getElementById('actionArea');
+    // Comprehensive Scheme Database for Keyword Matching
+    const schemeDatabase = [
+        {
+            category: "pension",
+            name: "👴 इंदिरा गांधी राष्ट्रीय वृद्धावस्था पेंशन",
+            desc: "60+ वर्ष के बुजुर्गों को हर महीने सीधे बैंक खाते में ₹1,000 से ₹1,500 की पेंशन सहायता।"
+        },
+        {
+            category: "kisan",
+            name: "🌾 पीएम किसान सम्मान निधि योजना",
+            desc: "छोटे व सीमांत किसानों को हर साल ₹6,000 की आर्थिक मदद (₹2,000 की 3 किश्तें)।"
+        },
+        {
+            category: "health",
+            name: "🏥 आयुष्मान भारत योजना (PM-JAY)",
+            desc: "हर परिवार को ₹5 लाख तक का सालाना मुफ्त इलाज और कैशलेस अस्पताल सुविधा।"
+        },
+        {
+            category: "makan",
+            name: "🏠 प्रधानमंत्री आवास योजना (ग्रामीण)",
+            desc: "पक्का मकान बनाने के लिए ₹1.20 लाख की सीधी सरकारी सब्सिडी राशि।"
+        },
+        {
+            category: "ration",
+            name: "🌾 पीएम गरीब कल्याण अन्न योजना",
+            desc: "राशन कार्ड धारकों को हर महीने प्रति व्यक्ति 5 किलो मुफ्त अनाज।"
+        },
+        {
+            category: "artisan",
+            name: "🔨 पीएम विश्वकर्मा योजना",
+            desc: "कारीगरों व शिल्पकारों को ₹3 लाख तक का बिना गारंटी सस्ता कर्ज व आधुनिक टूलकिट।"
+        }
+    ];
 
-        aiDialogue.innerHTML = "ज्येष्ठ नागरिकांसाठी संजय गांधी निराधार योजना उपलब्ध आहे. दरमहा ₹१,५०० थेट खात्यात मिळतील.";
-        speakText("ज्येष्ठ नागरिकांसाठी संजय गांधी निराधार योजना उपलब्ध आहे. या योजनेत दरमहा १५०० रुपये थेट बँक खात्यात मिळतील. तुम्हाला या योजनेसाठी अर्ज करायचा आहे का?", "mr-IN");
+    // Tap Anywhere Unlocks Audio Policy
+    function unlockAudioAndStart() {
+        document.getElementById('startMask').style.display = 'none';
+        goToScreen1();
+    }
 
-        actionArea.innerHTML = `
-            <div class="scheme-card active-scheme">
-                <h4>📜 संजय गांधी निराधार पेन्शन योजना</h4>
-                <p><strong>फायदा:</strong> दरमहा ₹1,500 थेट DBT द्वारे खात्यात जमा. वयोमर्यादा: 65+ वर्षे.</p>
-                <div class="digilocker-badge"><i class="fa-solid fa-shield-halved"></i> DigiLocker द्वारे थेट पडताळणी</div>
+    // SCREEN 1: First Hindi Voice Prompt
+    function goToScreen1() {
+        const dialogue = "नमस्ते! मैं जनवाणी एआई हूँ। आपको किस समस्या या मुद्दे पर सरकारी योजना चाहिए?";
+        document.getElementById('aiDialogue').innerText = dialogue;
+        
+        speakText(dialogue);
+
+        document.getElementById('actionArea').innerHTML = `
+            <div style="text-align:center; margin-bottom:8px;">
+                <p style="font-size:12px; color:#94a3b8;">नीचे अपनी समस्या या मुद्दा चुनें या बोलें:</p>
             </div>
-            <button class="pulse-btn" onclick="startVoiceFormFill()">
-                <i class="fa-solid fa-microphone"></i> होय, अर्ज भरा (Voice Enroll)
+            <div class="keyword-scroll">
+                <div class="pill active" onclick="filterSchemes('all')">🌟 सभी योजनाएं</div>
+                <div class="pill" onclick="filterSchemes('pension')">👴 बुजुर्ग पेंशन</div>
+                <div class="pill" onclick="filterSchemes('kisan')">🌾 किसान सहायता</div>
+                <div class="pill" onclick="filterSchemes('health')">🏥 अस्पताल व इलाज</div>
+                <div class="pill" onclick="filterSchemes('makan')">🏠 पक्का मकान</div>
+                <div class="pill" onclick="filterSchemes('ration')">🌾 मुफ्त राशन</div>
+                <div class="pill" onclick="filterSchemes('artisan')">🔨 कारीगर / कर्ज</div>
+            </div>
+            <div id="schemesList" style="max-height:220px; overflow-y:auto;">
+                <!-- Populated dynamically -->
+            </div>
+        `;
+
+        filterSchemes('all');
+    }
+
+    // SCREEN 2: Keyword Filtered Schemes
+    function filterSchemes(cat) {
+        const container = document.getElementById('schemesList');
+        let filtered = schemeDatabase;
+        if(cat !== 'all') {
+            filtered = schemeDatabase.filter(s => s.category === cat);
+        }
+
+        container.innerHTML = filtered.map((s, idx) => `
+            <div class="scheme-card" onclick="selectScheme('${s.name}', '${s.desc}')">
+                <h4>${s.name}</h4>
+                <p>${s.desc}</p>
+            </div>
+        `).join('');
+
+        if(cat !== 'all') {
+            const dialogue = "आपके चुने हुए मुद्दे से जुड़ी सरकारी योजनाएं स्क्रीन पर आ गई हैं। जिस योजना में आवेदन करना है उस पर टैप करें।";
+            document.getElementById('aiDialogue').innerText = dialogue;
+            speakText(dialogue);
+        }
+    }
+
+    // SCREEN 3: Scheme Explanation & Voice Registration Prompt
+    function selectScheme(name, desc) {
+        const dialogue = name + "। " + desc + "। क्या आप इस योजना के लिए फॉर्म भरना चाहते हैं?";
+        document.getElementById('aiDialogue').innerText = dialogue;
+        
+        speakText(dialogue);
+
+        document.getElementById('actionArea').innerHTML = `
+            <div class="scheme-card selected">
+                <h4>${name}</h4>
+                <p>${desc}</p>
+                <div style="margin-top:8px; font-size:11px; color:#00F0FF; font-weight:700;">
+                    <i class="fa-solid fa-shield-halved"></i> डिजीलॉकर द्वारा तुरंत ऑनलाइन सत्यापन
+                </div>
+            </div>
+            <button class="primary-btn" onclick="goToFormFill()">
+                <i class="fa-solid fa-microphone"></i> हाँ, फॉर्म भरें (Voice Form Fill)
             </button>
         `;
     }
 
-    // STEP 3: Automated Voice Form Filling & Auto OTP Simulation
-    function startVoiceFormFill() {
-        const aiDialogue = document.getElementById('aiDialogue');
-        const actionArea = document.getElementById('actionArea');
+    // SCREEN 4: Auto Data Mapping & Live OTP Simulation
+    function goToFormFill() {
+        const dialogue = "आपका आधार और डिजीलॉकर डेटा जोड़ लिया गया है। फोन पर आया ओटीपी अपने आप भरा जा रहा है।";
+        document.getElementById('aiDialogue').innerText = dialogue;
+        
+        speakText(dialogue);
 
-        aiDialogue.innerHTML = "तुमचा आधार आणि डिजीलॉकर जोडले आहे. फोनवर आलेला OTP आपोआप भरला जात आहे...";
-        speakText("तुमचा आधार आणि डिजीलॉकर जोडले आहे. फोनवर आलेला ओटीपी आपोआप भरला जात आहे. कृपया थांबा.", "mr-IN");
-
-        actionArea.innerHTML = `
+        document.getElementById('actionArea').innerHTML = `
             <div class="form-box">
                 <div class="form-row">
-                    <label>लाभार्थ्याचे नाव (Name)</label>
-                    <input class="form-input" value="आनंदीबाई ज्ञानोबा कांबळे" readonly>
+                    <label>लाभार्थी का नाम (DigiLocker)</label>
+                    <input class="form-input" value="रामेश्वर ज्ञानोबा पाटिल" readonly>
                 </div>
                 <div class="form-row">
-                    <label>मोबाईल क्रमांक (Mobile)</label>
+                    <label>मोबाइल नंबर (Aadhaar Linked)</label>
                     <input class="form-input" value="+91 98450 •••••" readonly>
                 </div>
                 <div class="form-row">
-                    <label>शासकीय OTP (Auto-Filling)</label>
-                    <input class="form-input" id="otpField" value="•• •• ••" style="border-color:#2dd4bf; color:#2dd4bf; letter-spacing:4px;" readonly>
+                    <label>सरकारी OTP (Auto Filling...)</label>
+                    <input class="form-input" id="otpField" value="• • • • • •" style="border-color:#00F0FF; color:#00F0FF; font-size:16px; letter-spacing:6px;" readonly>
                 </div>
-                <div class="digilocker-badge"><i class="fa-solid fa-circle-check"></i> डिजिटल लाइफ सर्टिफिकेट जोडले गेले</div>
             </div>
         `;
 
-        // Simulate Live OTP Arrival after 2.5 seconds
+        // OTP Auto fill after 2.2 seconds
         setTimeout(() => {
-            document.getElementById('otpField').value = "8 4 9 2 0 1";
-            speakText("ओटीपी पडताळणी पूर्ण झाली. अर्ज सरकारकडे सादर केला जात आहे.", "mr-IN");
+            document.getElementById('otpField').value = "9 4 1 8 0 2";
+            speakText("ओटीपी सत्यापन पूरा हुआ। फॉर्म सरकार को भेजा जा रहा है।");
         }, 2200);
 
-        // Submit & Trigger Government Notification after 5 seconds
+        // Submit & Trigger Govt Push SMS after 4.8 seconds
         setTimeout(() => {
             triggerGovtSubmissionSuccess();
         }, 4800);
     }
 
-    // STEP 4: Govt SMS Pop-up + Voice Confirmation of Direct Benefit Transfer
+    // SCREEN 5: Govt Push Notification + Audio Confirmation
     function triggerGovtSubmissionSuccess() {
-        const govtSms = document.getElementById('govtSms');
-        const aiDialogue = document.getElementById('aiDialogue');
-        const actionArea = document.getElementById('actionArea');
+        document.getElementById('govtSms').classList.add('show');
 
-        // Show Slide-down Official Govt SMS
-        govtSms.classList.add('show');
+        const dialogue = "बधाई हो! आपका आवेदन सफलतापूर्वक जमा हो गया है। सरकार का मैसेज भी आ गया है, जल्द ही पैसे सीधे आपके बैंक खाते में आ जाएंगे।";
+        document.getElementById('aiDialogue').innerText = dialogue;
+        
+        speakText(dialogue);
 
-        aiDialogue.innerHTML = "अभिनंदन! तुमचा अर्ज जमा झाला आहे. शासनाचा संदेश आला आहे, लवकरच पैसे खात्यात येतील.";
-        speakText("अभिनंदन! तुमचा अर्ज यशस्वीरीत्या जमा झाला आहे. सरकारकडून मेसेज आला आहे, लवकरच पैसे थेट तुमच्या बँक खात्यात जमा होतील. तुम्हाला कोणाकडेही जाण्याची गरज नाही.", "mr-IN");
-
-        actionArea.innerHTML = `
-            <div class="form-box" style="text-align:center; border-color:#10b981; background:rgba(16, 185, 129, 0.05);">
-                <i class="fa-solid fa-circle-check" style="font-size:48px; color:#10b981; margin-bottom:10px;"></i>
-                <h3 style="color:#10b981; font-size:20px; font-weight:800;">अर्ज मंजूर झाला (DBT Active)</h3>
-                <p style="font-size:13px; color:#cbd5e1; margin-top:8px;">Zero Travel • Zero Middlemen • 100% Direct Transfer</p>
+        document.getElementById('actionArea').innerHTML = `
+            <div class="form-box" style="text-align:center; border-color:#10b981; background:rgba(16, 185, 129, 0.05); padding:20px;">
+                <i class="fa-solid fa-circle-check" style="font-size:42px; color:#10b981; margin-bottom:8px;"></i>
+                <h3 style="color:#10b981; font-size:18px; font-weight:800;">आवेदन स्वीकृत हुआ (DBT Direct)</h3>
+                <p style="font-size:12px; color:#cbd5e1; margin-top:4px;">जीरो ट्रैवल • जीरो दलाल • 100% सीधा बैंक ट्रांसफर</p>
             </div>
-            <button class="opt-btn" style="justify-content:center; margin-top:12px;" onclick="location.reload()">
-                <i class="fa-solid fa-rotate-right" style="margin-right:8px;"></i> पुन्हा नवीन अर्ज करा (Restart)
+            <button class="primary-btn" style="background:rgba(255,255,255,0.1); color:#fff; box-shadow:none; margin-top:10px;" onclick="goToScreen1()">
+                <i class="fa-solid fa-rotate-right"></i> नया आवेदन करें (Start Again)
             </button>
         `;
     }
@@ -513,4 +589,4 @@ interactive_app_html = """
 </html>
 """
 
-components.html(interactive_app_html, height=860, scrolling=False)
+components.html(smart_app_html, height=850, scrolling=False)
